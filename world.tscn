@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bae8ctyo02p4u"]
+[gd_scene load_steps=6 format=3 uid="uid://bae8ctyo02p4u"]
 
 [ext_resource type="ArrayMesh" uid="uid://cnugxha65fas7" path="res://assets/Free_SciFi-Fighter/SciFi_Fighter_AK5.obj" id="1_yy604"]
+[ext_resource type="Texture2D" uid="uid://cl3shi5gj47xk" path="res://assets/panorama_image.png" id="2_8ksj7"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_737uh"]
+panorama = ExtResource("2_8ksj7")
+
+[sub_resource type="Sky" id="Sky_x56o7"]
+sky_material = SubResource("PanoramaSkyMaterial_737uh")
+
+[sub_resource type="Environment" id="Environment_8ta2m"]
+background_mode = 2
+sky = SubResource("Sky_x56o7")
+sky_rotation = Vector3(0, 0, 3.14159)
 
 [node name="world" type="Node3D"]
 
@@ -14,3 +26,22 @@ skeleton = NodePath("../..")
 [node name="Camera3D" type="Camera3D" parent="player"]
 transform = Transform3D(-1, 0, -8.74228e-08, -8.90141e-09, 0.994803, 0.10182, 8.69684e-08, 0.10182, -0.994803, 0, 10.7259, -19.3556)
 fov = 81.5
+
+[node name="lighting" type="Node3D" parent="."]
+
+[node name="key (sun)" type="DirectionalLight3D" parent="lighting"]
+transform = Transform3D(0.0136222, -0.625106, -0.780421, -0.0109096, -0.78054, 0.625011, -0.999848, -1.86236e-09, -0.0174523, -43.9694, 28.5196, 0)
+light_energy = 1.5
+
+[node name="back" type="DirectionalLight3D" parent="lighting"]
+transform = Transform3D(-0.0280337, 0.580276, 0.813937, -0.00994605, 0.814055, -0.580703, -0.999557, -0.0243747, -0.0170495, 25.2432, -12.9143, 0)
+light_color = Color(1, 0.8, 0.823529, 1)
+light_energy = 0.3
+
+[node name="fill" type="DirectionalLight3D" parent="lighting"]
+transform = Transform3D(0.988242, -0.152249, 0.0140838, 0.137832, 0.847196, -0.513091, 0.0661858, 0.508999, 0.858219, -0.75548, -15.9906, 30.4644)
+light_color = Color(0.85098, 0.827451, 1, 1)
+light_energy = 0.7
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8ta2m")
