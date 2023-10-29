@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://bae8ctyo02p4u"]
+[gd_scene load_steps=2 format=3 uid="uid://bae8ctyo02p4u"]
+
+[ext_resource type="ArrayMesh" uid="uid://cnugxha65fas7" path="res://assets/Free_SciFi-Fighter/SciFi_Fighter_AK5.obj" id="1_yy604"]
 
 [node name="world" type="Node3D"]
+
+[node name="player" type="Node3D" parent="."]
+
+[node name="SciFiFighterAk5" type="MeshInstance3D" parent="player"]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+mesh = ExtResource("1_yy604")
+skeleton = NodePath("../..")
+
+[node name="Camera3D" type="Camera3D" parent="player"]
+transform = Transform3D(-1, 0, -8.74228e-08, -8.90141e-09, 0.994803, 0.10182, 8.69684e-08, 0.10182, -0.994803, 0, 10.7259, -19.3556)
+fov = 81.5
