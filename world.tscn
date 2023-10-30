@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bae8ctyo02p4u"]
+[gd_scene load_steps=7 format=3 uid="uid://bae8ctyo02p4u"]
 
 [ext_resource type="ArrayMesh" uid="uid://cnugxha65fas7" path="res://assets/Free_SciFi-Fighter/SciFi_Fighter_AK5.obj" id="1_yy604"]
 [ext_resource type="Texture2D" uid="uid://cl3shi5gj47xk" path="res://assets/panorama_image.png" id="2_8ksj7"]
+[ext_resource type="PackedScene" uid="uid://y28js5t62jm3" path="res://object_scenes/asteroid.tscn" id="3_rdn8k"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_737uh"]
 panorama = ExtResource("2_8ksj7")
@@ -24,7 +25,7 @@ mesh = ExtResource("1_yy604")
 skeleton = NodePath("../..")
 
 [node name="Camera3D" type="Camera3D" parent="player"]
-transform = Transform3D(-1, 0, -8.74228e-08, -8.90141e-09, 0.994803, 0.10182, 8.69684e-08, 0.10182, -0.994803, 0, 10.7259, -19.3556)
+transform = Transform3D(-1, -2.75335e-14, -8.74228e-08, -8.90141e-09, 0.994803, 0.10182, 8.69684e-08, 0.10182, -0.994803, 0, 10.7259, -19.3556)
 fov = 81.5
 
 [node name="lighting" type="Node3D" parent="."]
@@ -45,3 +46,17 @@ light_energy = 0.7
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8ta2m")
+
+[node name="asteroids" type="Node3D" parent="."]
+
+[node name="asteroid" parent="asteroids" instance=ExtResource("3_rdn8k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.9808, 0, -50.656)
+
+[node name="asteroid2" parent="asteroids" instance=ExtResource("3_rdn8k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.927, -71.2662, -91.5638)
+
+[node name="asteroid3" parent="asteroids" instance=ExtResource("3_rdn8k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97.5036, -71.2662, -21.0438)
+
+[node name="asteroid4" parent="asteroids" instance=ExtResource("3_rdn8k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.45509, -13.5393, 93.7427)
