@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bae8ctyo02p4u"]
+[gd_scene load_steps=8 format=3 uid="uid://bae8ctyo02p4u"]
 
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_i60gv"]
 [ext_resource type="ArrayMesh" uid="uid://cnugxha65fas7" path="res://assets/Free_SciFi-Fighter/SciFi_Fighter_AK5.obj" id="1_yy604"]
 [ext_resource type="Texture2D" uid="uid://cl3shi5gj47xk" path="res://assets/panorama_image.png" id="2_8ksj7"]
 [ext_resource type="PackedScene" uid="uid://y28js5t62jm3" path="res://object_scenes/asteroid.tscn" id="3_rdn8k"]
@@ -18,6 +19,7 @@ sky_rotation = Vector3(0, 0, 3.14159)
 [node name="world" type="Node3D"]
 
 [node name="player" type="Node3D" parent="."]
+script = ExtResource("1_i60gv")
 
 [node name="SciFiFighterAk5" type="MeshInstance3D" parent="player"]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
